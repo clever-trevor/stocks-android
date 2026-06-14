@@ -1,1 +1,22 @@
-build/*
+# Build outputs
+build/
+app/build/
+app/release/
+
+# Gradle
+.gradle/
+local.properties
+
+# Secrets
+alpha-vantage.txt
+
+# Heap dumps
+*.hprof
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
