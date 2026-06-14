@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;}</style>
+</helmet>
+
+<div style="min-height:100vh; background:#161618; font-family:'Sora',sans-serif; color:#f2f1ec; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px; padding:48px 24px; box-sizing:border-box;">
+
+  <div style="text-align:center;">
+    <div style="font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#6f6e68;">Option A &middot; Data table</div>
+    <div style="font-size:15px; color:#56554f; margin-top:4px;">Dark mode &middot; Sora + IBM Plex Mono &middot; Android 4&times;4 widget</div>
+  </div>
+
+  <div style="width:392px; background:#212125; border:1px solid #313137; border-radius:30px; box-shadow:0 24px 56px -20px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.04); padding:24px 22px 18px; box-sizing:border-box;">
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;">
+      <div>
+        <div style="font-size:19px; font-weight:600; letter-spacing:-0.01em; color:#f6f5f1;">My Holdings</div>
+        <div style="font-size:11.5px; color:#76746d; margin-top:2px;">5 positions</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; color:#f6f5f1;">$9,070</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:#4ec77f; font-variant-numeric:tabular-nums;">+$2,470 &middot; +37.4%</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.5fr 0.95fr 1.05fr 1fr; gap:8px; font-size:10px; font-weight:600; letter-spacing:0.09em; text-transform:uppercase; color:#62615b; padding-bottom:9px; border-bottom:1px solid #2e2e33;">
+      <div>Stock</div>
+      <div style="text-align:right;">Price</div>
+      <div style="text-align:right;">Value</div>
+      <div style="text-align:right;">Gain</div>
+    </div>
+
+    <sc-for list="{{ stocks }}" as="s" hint-placeholder-count="5">
+      <div style="display:grid; grid-template-columns:1.5fr 0.95fr 1.05fr 1fr; gap:8px; align-items:center; padding:11px 0; border-bottom:1px solid #29292e;">
+        <div style="min-width:0;">
+          <div style="font-size:15px; font-weight:600; letter-spacing:-0.01em; line-height:1.1; color:#f2f1ec;">{{ s.name }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; color:#76746d; letter-spacing:0.03em; line-height:1.3;">{{ s.ticker }}</div>
+        </div>
+        <div style="text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#b3b1a8; font-variant-numeric:tabular-nums;">{{ s.price }}</div>
+        <div style="text-align:right;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; line-height:1.1; color:#f6f5f1;">{{ s.current }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:#62615b; font-variant-numeric:tabular-nums; line-height:1.3;">from {{ s.initial }}</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; color:{{ s.gainColor }}; font-variant-numeric:tabular-nums; line-height:1.1;">{{ s.gain }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; color:{{ s.gainColor }}; font-variant-numeric:tabular-nums; line-height:1.3;">{{ s.pct }}</div>
+        </div>
+      </div>
+    </sc-for>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#56554f; letter-spacing:0.02em;">Updated 9:41 AM</div>
+      <div style="font-size:10.5px; font-weight:600; color:#8d8b84; letter-spacing:0.04em;">REFRESH &#8635;</div>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 560, &quot;height&quot;: 640 },
+  &quot;accentUp&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#4ec77f&quot;, &quot;tsType&quot;: &quot;string&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const green = this.props.accentUp ?? '#4ec77f';
+    const red = '#f0795f';
+    const raw = [
+      { name: 'Apple',     ticker: 'AAPL', price: '$198.42', initial: '$1,200', current: '$1,587', gain: '+$387',   pct: '+32.3%',     up: true  },
+      { name: 'Microsoft', ticker: 'MSFT', price: '$467.10', initial: '$2,000', current: '$2,803', gain: '+$803',   pct: '+40.2%',     up: true  },
+      { name: 'Nvidia',    ticker: 'NVDA', price: '$131.88', initial: '$900',   current: '$2,110', gain: '+$1,210', pct: '+134%',      up: true  },
+      { name: 'Tesla',     ticker: 'TSLA', price: '$246.33', initial: '$1,500', current: '$1,232', gain: '\u2212$268', pct: '\u221217.9%', up: false },
+      { name: 'Amazon',    ticker: 'AMZN', price: '$214.05', initial: '$1,000', current: '$1,338', gain: '+$338',   pct: '+33.8%',     up: true  },
+    ];
+    const stocks = raw.map(s => ({ ...s, gainColor: s.up ? green : red }));
+    return { stocks };
+  }
+}
+</script>
+</body>
+</html>

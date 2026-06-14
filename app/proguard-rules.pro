@@ -1,0 +1,3 @@
+-keepattributes Signature
+-keep class com.example.stocktracker.data.remote.** { *; }
+-keep class com.google.gson.** { *; }

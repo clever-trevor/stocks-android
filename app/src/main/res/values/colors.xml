@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="profit_green">#2E7D32</color>
+    <color name="loss_red">#C62828</color>
+    <color name="neutral_grey">#9E9E9E</color>
+    <color name="blue_900">#0D1B3E</color>
+    <color name="blue_800">#1565C0</color>
+    <color name="blue_700">#1976D2</color>
+    <color name="cyan_400">#26C6DA</color>
+    <color name="cyan_600">#00ACC1</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Holdings widget design tokens -->
+    <color name="hw_surface">#212125</color>
+    <color name="hw_border">#313137</color>
+    <color name="hw_divider_header">#2E2E33</color>
+    <color name="hw_divider_row">#29292E</color>
+    <color name="hw_text_strong">#F6F5F1</color>
+    <color name="hw_text_primary">#F2F1EC</color>
+    <color name="hw_text_secondary">#B3B1A8</color>
+    <color name="hw_text_muted">#76746D</color>
+    <color name="hw_text_faint">#62615B</color>
+    <color name="hw_text_faint2">#56554F</color>
+    <color name="hw_gain">#4EC77F</color>
+    <color name="hw_loss">#F0795F</color>
+</resources>

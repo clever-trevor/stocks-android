@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_holdings_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_holdings_bg"
+    android:paddingTop="24dp"
+    android:paddingStart="22dp"
+    android:paddingEnd="22dp"
+    android:paddingBottom="18dp">
+
+    <!-- Header: title block (left) + portfolio totals (right) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="18dp">
+
+        <!-- Left: title + position count -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_hw_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Holdings"
+                android:textColor="@color/hw_text_strong"
+                android:textSize="19sp"
+                android:textFontWeight="600"
+                android:fontFamily="@font/sora"
+                android:letterSpacing="-0.01" />
+
+            <TextView
+                android:id="@+id/tv_hw_position_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="0 positions"
+                android:textColor="@color/hw_text_muted"
+                android:textSize="11.5sp"
+                android:fontFamily="@font/sora" />
+
+        </LinearLayout>
+
+        <!-- Right: portfolio total + gain -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tv_hw_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="£0.00"
+                android:textColor="@color/hw_text_strong"
+                android:textSize="22sp"
+                android:textFontWeight="600"
+                android:fontFamily="@font/ibm_plex_mono"
+                android:letterSpacing="-0.02"
+                android:gravity="end" />
+
+            <TextView
+                android:id="@+id/tv_hw_total_gain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+£0.00 · +0.0%"
+                android:textColor="@color/hw_gain"
+                android:textSize="12sp"
+                android:textFontWeight="500"
+                android:fontFamily="@font/ibm_plex_mono"
+                android:gravity="end" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Column labels row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="9dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="STOCK"
+            android:textColor="@color/hw_text_faint"
+            android:textSize="10sp"
+            android:textFontWeight="600"
+            android:fontFamily="@font/sora"
+            android:letterSpacing="0.09"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95"
+            android:text="PRICE"
+            android:textColor="@color/hw_text_faint"
+            android:textSize="10sp"
+            android:textFontWeight="600"
+            android:fontFamily="@font/sora"
+            android:letterSpacing="0.09"
+            android:textAllCaps="true"
+            android:gravity="end" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.05"
+            android:text="VALUE"
+            android:textColor="@color/hw_text_faint"
+            android:textSize="10sp"
+            android:textFontWeight="600"
+            android:fontFamily="@font/sora"
+            android:letterSpacing="0.09"
+            android:textAllCaps="true"
+            android:gravity="end"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="GAIN"
+            android:textColor="@color/hw_text_faint"
+            android:textSize="10sp"
+            android:textFontWeight="600"
+            android:fontFamily="@font/sora"
+            android:letterSpacing="0.09"
+            android:textAllCaps="true"
+            android:gravity="end"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+    <!-- Divider under column labels -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/hw_divider_header"
+        android:contentDescription="@null" />
+
+    <!-- Stock rows list -->
+    <ListView
+        android:id="@+id/lv_hw_rows"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
+    <!-- Footer: last updated + refresh -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="14dp">
+
+        <TextView
+            android:id="@+id/tv_hw_updated"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Updated —"
+            android:textColor="@color/hw_text_faint2"
+            android:textSize="10sp"
+            android:fontFamily="@font/ibm_plex_mono" />
+
+        <TextView
+            android:id="@+id/btn_hw_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REFRESH ↻"
+            android:textColor="#8D8B84"
+            android:textSize="10.5sp"
+            android:textFontWeight="600"
+            android:fontFamily="@font/sora"
+            android:letterSpacing="0.04"
+            android:textAllCaps="true"
+            android:minHeight="48dp"
+            android:gravity="center_vertical" />
+
+    </LinearLayout>
+
+</LinearLayout>
