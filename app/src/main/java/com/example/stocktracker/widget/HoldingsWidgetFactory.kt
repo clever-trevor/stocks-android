@@ -23,6 +23,10 @@ class HoldingsWidgetFactory(
     )
     private val repository = StockRepository(context)
     private val gbpFmt = NumberFormat.getCurrencyInstance(Locale.UK)
+    private val gbpFmtWhole = NumberFormat.getCurrencyInstance(Locale.UK).apply {
+        maximumFractionDigits = 0
+        minimumFractionDigits = 0
+    }
     private var stocks: List<StockEntity> = emptyList()
 
     private val gainColor = Color.parseColor("#4EC77F")
@@ -52,12 +56,12 @@ class HoldingsWidgetFactory(
         rv.setTextViewText(R.id.tv_hrow_price,
             stock.cachedPriceGbp?.let { gbpFmt.format(it) } ?: "—")
         rv.setTextViewText(R.id.tv_hrow_value,
-            currentValue?.let { gbpFmt.format(it) } ?: "—")
-        rv.setTextViewText(R.id.tv_hrow_cost, "from ${gbpFmt.format(initialValue)}")
+            currentValue?.let { gbpFmtWhole.format(it) } ?: "—")
+        rv.setTextViewText(R.id.tv_hrow_cost, "from ${gbpFmtWhole.format(initialValue)}")
 
         val gainText = gain?.let {
             val sign = if (it >= 0) "+" else "−"
-            "$sign${gbpFmt.format(kotlin.math.abs(it))}"
+            "$sign${gbpFmtWhole.format(kotlin.math.abs(it))}"
         } ?: "—"
         val gainPctText = gainPct?.let {
             val sign = if (it >= 0) "+" else "−"

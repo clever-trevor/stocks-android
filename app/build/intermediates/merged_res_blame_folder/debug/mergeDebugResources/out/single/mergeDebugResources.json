@@ -1,122 +1,126 @@
 [
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_widget_stock.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\widget_stock.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_ic_arrow_back.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\ic_arrow_back.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_ic_arrow_back.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/ic_arrow_back.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_gold_rush.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_gold_rush.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_forest.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_forest.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_activity_add_edit_stock.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\activity_add_edit_stock.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_holdings_bg.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_holdings_bg.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_item_color_scheme.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\item_color_scheme.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/font_sora.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/font/sora.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_purple_rain.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_purple_rain.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_sunset.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_sunset.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/layout_item_color_scheme.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/layout/item_color_scheme.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_arctic.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_arctic.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_midnight.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_midnight.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_background.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_background.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_midnight.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_midnight.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\xml_holdings_widget_info.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\xml\\holdings_widget_info.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/layout_widget_stock.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/layout/widget_stock.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/xml_holdings_widget_info.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/xml/holdings_widget_info.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_activity_widget_config.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\activity_widget_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\font_sora.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\font\\sora.xml"
+    },
+    {
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_background.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_background.xml"
     },
     {
         "merged": "com.example.stocktracker.app-debug-45:/layout_widget_holdings_row.xml.flat",
         "source": "com.example.stocktracker.app-main-47:/layout/widget_holdings_row.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_ocean.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_ocean.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_holdings_bg.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_holdings_bg.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_arctic.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_arctic.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\xml_stock_widget_info.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\xml\\stock_widget_info.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/layout_widget_stock_item.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/layout/widget_stock_item.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_rose_garden.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_rose_garden.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/layout_widget_holdings.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/layout/widget_holdings.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_widget_stock_item.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\widget_stock_item.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_widget_holdings_row.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\widget_holdings_row.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_purple_rain.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_purple_rain.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_forest.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_forest.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/layout_activity_add_edit_stock.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/layout/activity_add_edit_stock.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_widget_holdings.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\widget_holdings.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/layout_item_stock.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/layout/item_stock.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\font_ibm_plex_mono.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\font\\ibm_plex_mono.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/xml_stock_widget_info.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/xml/stock_widget_info.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_graphite.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_graphite.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_graphite.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_graphite.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_slate.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_slate.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/font_ibm_plex_mono.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/font/ibm_plex_mono.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_sunset.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_sunset.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_gold_rush.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_gold_rush.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_activity_portfolio.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\activity_portfolio.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_slate.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_slate.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\drawable_widget_bg_ocean.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\drawable\\widget_bg_ocean.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-debug-45:/layout_activity_widget_config.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/layout/activity_widget_config.xml"
-    },
-    {
-        "merged": "com.example.stocktracker.app-debug-45:/layout_activity_portfolio.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/layout/activity_portfolio.xml"
-    },
-    {
-        "merged": "com.example.stocktracker.app-debug-45:/drawable_widget_bg_rose_garden.xml.flat",
-        "source": "com.example.stocktracker.app-main-47:/drawable/widget_bg_rose_garden.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-debug-45:\\layout_item_stock.xml.flat",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\item_stock.xml"
     }
 ]

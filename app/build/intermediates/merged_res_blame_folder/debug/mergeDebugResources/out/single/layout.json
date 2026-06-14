@@ -1,38 +1,42 @@
 [
     {
-        "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/item_color_scheme.xml",
-        "source": "com.example.stocktracker.app-main-47:/layout/item_color_scheme.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\item_stock.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\item_stock.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/widget_stock_item.xml",
-        "source": "com.example.stocktracker.app-main-47:/layout/widget_stock_item.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\widget_holdings_row.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\widget_holdings_row.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/activity_portfolio.xml",
-        "source": "com.example.stocktracker.app-main-47:/layout/activity_portfolio.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\activity_portfolio.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\activity_portfolio.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/widget_stock.xml",
-        "source": "com.example.stocktracker.app-main-47:/layout/widget_stock.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\item_color_scheme.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\item_color_scheme.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/widget_holdings.xml",
-        "source": "com.example.stocktracker.app-main-47:/layout/widget_holdings.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\activity_widget_config.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\activity_widget_config.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/activity_add_edit_stock.xml",
-        "source": "com.example.stocktracker.app-main-47:/layout/activity_add_edit_stock.xml"
-    },
-    {
-        "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/activity_widget_config.xml",
-        "source": "com.example.stocktracker.app-main-47:/layout/activity_widget_config.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\activity_add_edit_stock.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\activity_add_edit_stock.xml"
     },
     {
         "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/widget_holdings_row.xml",
         "source": "com.example.stocktracker.app-main-47:/layout/widget_holdings_row.xml"
     },
     {
-        "merged": "com.example.stocktracker.app-mergeDebugResources-44:/layout/item_stock.xml",
-        "source": "com.example.stocktracker.app-main-47:/layout/item_stock.xml"
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\widget_stock.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\widget_stock.xml"
+    },
+    {
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\widget_holdings.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\widget_holdings.xml"
+    },
+    {
+        "merged": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-mergeDebugResources-44:\\layout\\widget_stock_item.xml",
+        "source": "C:\\Users\\trev\\.gradle\\daemon\\9.4.1\\com.example.stocktracker.app-main-47:\\layout\\widget_stock_item.xml"
     }
 ]
