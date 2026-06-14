@@ -3,6 +3,10 @@ plugins {
     id 'com.google.devtools.ksp'
 }
 
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) localPropsFile.withInputStream { localProps.load(it) }
+
 android {
     namespace 'com.example.stocktracker'
     compileSdk 34
@@ -13,7 +17,7 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "ALPHA_VANTAGE_KEY", '"3V03TPY3XPSV2DRR"'
+        buildConfigField "String", "ALPHA_VANTAGE_KEY", "\"${localProps.getProperty('alpha_vantage_key', '')}\""
     }
 
     buildTypes {
