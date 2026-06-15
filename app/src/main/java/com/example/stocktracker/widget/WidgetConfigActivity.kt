@@ -57,7 +57,7 @@ class WidgetConfigActivity : AppCompatActivity() {
             val name = nameEdit.text.toString().trim().ifEmpty { "My Portfolio" }
             WidgetPrefs.saveName(this, appWidgetId, name)
             WidgetPrefs.saveScheme(this, appWidgetId, selectedSchemeId)
-            StockWidgetProvider.updateWidget(this, AppWidgetManager.getInstance(this), appWidgetId)
+            HoldingsWidgetProvider.updateWidget(this, AppWidgetManager.getInstance(this), appWidgetId)
             setResult(RESULT_OK, Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId))
             finish()
         }

@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.stocktracker.data.local.StockEntity
 import com.example.stocktracker.data.repository.StockRepository
-import com.example.stocktracker.widget.StockWidgetProvider
+import com.example.stocktracker.widget.HoldingsWidgetProvider
 import kotlinx.coroutines.launch
 
 class AddEditStockViewModel(app: Application) : AndroidViewModel(app) {
@@ -54,7 +54,7 @@ class AddEditStockViewModel(app: Application) : AndroidViewModel(app) {
                 cachedPriceTimestamp = if (current?.symbol == symbol.trim().uppercase()) current?.cachedPriceTimestamp else null
             )
             if (editingId != null) repository.updateStock(stock) else repository.addStock(stock)
-            StockWidgetProvider.refreshAll(getApplication())
+            HoldingsWidgetProvider.refreshAll(getApplication())
             saved.postValue(true)
         }
     }

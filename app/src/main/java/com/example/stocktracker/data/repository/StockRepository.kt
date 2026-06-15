@@ -58,9 +58,13 @@ class StockRepository(context: Context) {
                 val changePercent = response.globalQuote.changePercent
                     ?.replace("%", "")?.trim()?.toDoubleOrNull() ?: 0.0
 
-                val gbpPrice = when (stock.currency.uppercase()) {
-                    "USD" -> price * usdToGbp
-                    "GBX" -> price / 100.0
+                // Alpha Vantage always returns LSE prices in pence regardless of
+                // how the currency field is stored. Catch both .L (Yahoo) and .LON (Alpha Vantage) formats.
+                val symUpper = stock.symbol.uppercase()
+                val isUkStock = symUpper.endsWith(".L") || symUpper.endsWith(".LON")
+                val gbpPrice = when {
+                    isUkStock || stock.currency.uppercase() == "GBX" -> price / 100.0
+                    stock.currency.uppercase() == "USD" -> price * usdToGbp
                     else -> price
                 }
 

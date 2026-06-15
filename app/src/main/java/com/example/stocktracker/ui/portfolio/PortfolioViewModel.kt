@@ -8,7 +8,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.stocktracker.data.local.StockEntity
 import com.example.stocktracker.data.repository.StockRepository
-import com.example.stocktracker.widget.StockWidgetProvider
+import com.example.stocktracker.widget.HoldingsWidgetProvider
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
@@ -31,7 +31,7 @@ class PortfolioViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             try {
                 repository.refreshPrices()
-                StockWidgetProvider.refreshAll(getApplication())
+                HoldingsWidgetProvider.refreshAll(getApplication())
                 _error.value = null
             } catch (e: Exception) {
                 _error.value = "Refresh failed: ${e.message}"

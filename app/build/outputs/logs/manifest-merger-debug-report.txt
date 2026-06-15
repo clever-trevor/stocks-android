@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:2:1-76:12
-INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:2:1-76:12
-INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:2:1-76:12
-INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:2:1-76:12
+ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:2:1-59:12
 MERGED from [androidx.databinding:viewbinding:9.2.1] C:\Users\trev\.gradle\caches\9.4.1\transforms\b346cff5d72f998c67b772fcf3091ee7\transformed\viewbinding-9.2.1\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\trev\.gradle\caches\9.4.1\transforms\0647f45860dbe1e1ec7cc94e42639db7\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\trev\.gradle\caches\9.4.1\transforms\42f6839e74f73c5263b1f23122c26bd2\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -74,8 +74,8 @@ ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:4:5-67
 	android:name
 		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:6:5-75:19
-INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:6:5-75:19
+ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:6:5-58:19
+INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:6:5-58:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\trev\.gradle\caches\9.4.1\transforms\0647f45860dbe1e1ec7cc94e42639db7\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\trev\.gradle\caches\9.4.1\transforms\0647f45860dbe1e1ec7cc94e42639db7\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\trev\.gradle\caches\9.4.1\transforms\42f6839e74f73c5263b1f23122c26bd2\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -152,52 +152,36 @@ action#android.appwidget.action.APPWIDGET_CONFIGURE
 ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:36:17-87
 	android:name
 		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:36:25-84
-receiver#com.example.stocktracker.widget.StockWidgetProvider
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:41:9-50:20
+receiver#com.example.stocktracker.widget.HoldingsWidgetProvider
+ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:41:9-51:20
 	android:exported
 		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:43:13-36
 	android:name
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:42:13-55
-intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:44:13-46:29
+		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:42:13-58
+intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE+action:name:com.example.stocktracker.holdings.ACTION_REFRESH
+ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:44:13-47:29
 action#android.appwidget.action.APPWIDGET_UPDATE
 ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:45:17-84
 	android:name
 		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:45:25-81
-meta-data#android.appwidget.provider
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:47:13-49:61
-	android:resource
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:49:17-58
-	android:name
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:48:17-58
-service#com.example.stocktracker.widget.StockWidgetService
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:52:9-55:72
-	android:exported
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:54:13-37
-	android:permission
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:55:13-69
-	android:name
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:53:13-54
-receiver#com.example.stocktracker.widget.HoldingsWidgetProvider
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:58:9-68:20
-	android:exported
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:60:13-36
-	android:name
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:59:13-58
-intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE+action:name:com.example.stocktracker.holdings.ACTION_REFRESH
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:61:13-64:29
 action#com.example.stocktracker.holdings.ACTION_REFRESH
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:63:17-91
+ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:46:17-91
 	android:name
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:63:25-88
+		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:46:25-88
+meta-data#android.appwidget.provider
+ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:48:13-50:64
+	android:resource
+		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:50:17-61
+	android:name
+		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:49:17-58
 service#com.example.stocktracker.widget.HoldingsWidgetService
-ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:70:9-73:72
+ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:53:9-56:72
 	android:exported
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:72:13-37
+		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:55:13-37
 	android:permission
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:73:13-69
+		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:56:13-69
 	android:name
-		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:71:13-57
+		ADDED from T:\dev\stock-app\app\src\main\AndroidManifest.xml:54:13-57
 uses-sdk
 INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from T:\dev\stock-app\app\src\main\AndroidManifest.xml
