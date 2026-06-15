@@ -6,7 +6,6 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.widget.RemoteViews
@@ -30,6 +29,13 @@ class HoldingsWidgetProvider : AppWidgetProvider() {
 
     override fun onDisabled(context: Context) {
         HoldingsWidgetWorker.cancel(context)
+    }
+
+    override fun onDeleted(context: Context, appWidgetIds: IntArray) {
+        for (id in appWidgetIds) {
+            WidgetPrefs.deleteScheme(context, id)
+            WidgetPrefs.deleteName(context, id)
+        }
     }
 
     override fun onUpdate(
@@ -58,15 +64,28 @@ class HoldingsWidgetProvider : AppWidgetProvider() {
     companion object {
         const val ACTION_REFRESH = "com.example.stocktracker.holdings.ACTION_REFRESH"
 
-        private val gainColor = Color.parseColor("#4EC77F")
-        private val lossColor = Color.parseColor("#F0795F")
-
         fun updateWidget(
             context: Context,
             appWidgetManager: AppWidgetManager,
             appWidgetId: Int
         ) {
+            val scheme = WidgetPrefs.getScheme(context, appWidgetId)
+            val widgetName = WidgetPrefs.getName(context, appWidgetId)
             val views = RemoteViews(context.packageName, R.layout.widget_holdings)
+
+            // Apply colour scheme and widget name to all static elements
+            views.setInt(R.id.widget_holdings_root, "setBackgroundResource", scheme.bgDrawableRes)
+            views.setTextViewText(R.id.tv_hw_title, widgetName)
+            views.setTextColor(R.id.tv_hw_title, scheme.titleColor)
+            views.setTextColor(R.id.tv_hw_position_count, scheme.symbolColor)
+            views.setTextColor(R.id.tv_hw_total, scheme.titleColor)
+            views.setTextColor(R.id.tv_hw_updated, scheme.symbolColor)
+            views.setTextColor(R.id.btn_hw_refresh, scheme.symbolColor)
+            views.setTextColor(R.id.tv_hw_col_stock, scheme.symbolColor)
+            views.setTextColor(R.id.tv_hw_col_price, scheme.symbolColor)
+            views.setTextColor(R.id.tv_hw_col_value, scheme.symbolColor)
+            views.setTextColor(R.id.tv_hw_col_gain, scheme.symbolColor)
+            views.setInt(R.id.img_hw_header_divider, "setBackgroundColor", scheme.dividerColor)
 
             // Wire the stock-row list
             val serviceIntent = Intent(context, HoldingsWidgetService::class.java).also {
@@ -121,7 +140,7 @@ class HoldingsWidgetProvider : AppWidgetProvider() {
                 val totalGain = totalCurrent - totalInitial
                 val totalGainPct = if (totalInitial > 0) totalGain / totalInitial * 100 else 0.0
                 val isGain = totalGain >= 0
-                val color = if (isGain) gainColor else lossColor
+                val color = if (isGain) scheme.priceGainColor else scheme.priceLossColor
 
                 val gainSign = if (isGain) "+" else "−"
                 val gainAbs = kotlin.math.abs(totalGain)

@@ -3,7 +3,6 @@ package com.example.stocktracker.widget
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import com.example.stocktracker.R
@@ -27,15 +26,14 @@ class HoldingsWidgetFactory(
         maximumFractionDigits = 0
         minimumFractionDigits = 0
     }
+    private var scheme: WidgetColorScheme = WidgetColorSchemes.all[0]
     private var stocks: List<StockEntity> = emptyList()
-
-    private val gainColor = Color.parseColor("#4EC77F")
-    private val lossColor = Color.parseColor("#F0795F")
 
     override fun onCreate() = Unit
     override fun onDestroy() = Unit
 
     override fun onDataSetChanged() {
+        scheme = WidgetPrefs.getScheme(context, appWidgetId)
         stocks = runBlocking { repository.getWidgetStocks() }
     }
 
@@ -49,7 +47,7 @@ class HoldingsWidgetFactory(
         val currentValue = stock.cachedPriceGbp?.let { it * stock.sharesHeld }
         val gain = currentValue?.let { it - initialValue }
         val gainPct = gain?.let { it / initialValue * 100 }
-        val gainColor = if (gain == null || gain >= 0) this.gainColor else this.lossColor
+        val gainColor = if (gain == null || gain >= 0) scheme.priceGainColor else scheme.priceLossColor
 
         rv.setTextViewText(R.id.tv_hrow_name, stock.name)
         rv.setTextViewText(R.id.tv_hrow_ticker, stock.symbol)
@@ -70,8 +68,14 @@ class HoldingsWidgetFactory(
 
         rv.setTextViewText(R.id.tv_hrow_gain, gainText)
         rv.setTextViewText(R.id.tv_hrow_gain_pct, gainPctText)
+        rv.setTextColor(R.id.tv_hrow_name, scheme.nameColor)
+        rv.setTextColor(R.id.tv_hrow_ticker, scheme.symbolColor)
+        rv.setTextColor(R.id.tv_hrow_price, scheme.valueColor)
+        rv.setTextColor(R.id.tv_hrow_value, scheme.valueColor)
+        rv.setTextColor(R.id.tv_hrow_cost, scheme.symbolColor)
         rv.setTextColor(R.id.tv_hrow_gain, gainColor)
         rv.setTextColor(R.id.tv_hrow_gain_pct, gainColor)
+        rv.setInt(R.id.img_hrow_divider, "setBackgroundColor", scheme.dividerColor)
 
         return rv
     }
