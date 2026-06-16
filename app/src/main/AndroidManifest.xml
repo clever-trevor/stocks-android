@@ -30,6 +30,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.settings.AppSettingsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".widget.WidgetConfigActivity"
             android:exported="true">
             <intent-filter>

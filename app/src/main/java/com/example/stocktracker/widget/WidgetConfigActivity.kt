@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ class WidgetConfigActivity : AppCompatActivity() {
 
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
     private var selectedSchemeId = 0
+    private var selectedFontSize = WidgetPrefs.FONT_MEDIUM
     private lateinit var nameEdit: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +45,24 @@ class WidgetConfigActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener { finish() }
 
         selectedSchemeId = WidgetPrefs.getSchemeId(this, appWidgetId)
+        selectedFontSize = WidgetPrefs.getFontSize(this, appWidgetId)
 
         nameEdit = findViewById(R.id.et_widget_name)
         nameEdit.setText(WidgetPrefs.getName(this, appWidgetId))
+
+        val fontGroup = findViewById<RadioGroup>(R.id.rg_font_size)
+        when (selectedFontSize) {
+            WidgetPrefs.FONT_SMALL -> fontGroup.check(R.id.rb_font_small)
+            WidgetPrefs.FONT_LARGE -> fontGroup.check(R.id.rb_font_large)
+            else -> fontGroup.check(R.id.rb_font_medium)
+        }
+        fontGroup.setOnCheckedChangeListener { _, checkedId ->
+            selectedFontSize = when (checkedId) {
+                R.id.rb_font_small -> WidgetPrefs.FONT_SMALL
+                R.id.rb_font_large -> WidgetPrefs.FONT_LARGE
+                else -> WidgetPrefs.FONT_MEDIUM
+            }
+        }
 
         val recycler = findViewById<RecyclerView>(R.id.rv_schemes)
         recycler.layoutManager = LinearLayoutManager(this)
@@ -57,6 +74,7 @@ class WidgetConfigActivity : AppCompatActivity() {
             val name = nameEdit.text.toString().trim().ifEmpty { "My Portfolio" }
             WidgetPrefs.saveName(this, appWidgetId, name)
             WidgetPrefs.saveScheme(this, appWidgetId, selectedSchemeId)
+            WidgetPrefs.saveFontSize(this, appWidgetId, selectedFontSize)
             HoldingsWidgetProvider.updateWidget(this, AppWidgetManager.getInstance(this), appWidgetId)
             setResult(RESULT_OK, Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId))
             finish()
@@ -104,25 +122,16 @@ class WidgetConfigActivity : AppCompatActivity() {
             holder.name.text = scheme.displayName
             holder.radio.isChecked = scheme.id == selectedId
 
-            // Preview card background
             holder.previewCard.setCardBackgroundColor(scheme.bgColor)
-
-            // Title bar
             holder.previewTitle.setTextColor(scheme.titleColor)
             holder.previewRefresh.setTextColor(scheme.titleColor)
-
-            // Dividers
             holder.previewDivider0.setBackgroundColor(scheme.dividerColor)
             holder.previewDivider1.setBackgroundColor(scheme.dividerColor)
-
-            // Stock 1 (gain)
             holder.previewName1.setTextColor(scheme.nameColor)
             holder.previewPrice1.setTextColor(scheme.priceGainColor)
             holder.previewSymbol1.setTextColor(scheme.symbolColor)
             holder.previewChange1.setTextColor(scheme.priceGainColor)
             holder.previewTotal1.setTextColor(scheme.valueColor)
-
-            // Stock 2 (loss)
             holder.previewName2.setTextColor(scheme.nameColor)
             holder.previewPrice2.setTextColor(scheme.priceLossColor)
             holder.previewSymbol2.setTextColor(scheme.symbolColor)

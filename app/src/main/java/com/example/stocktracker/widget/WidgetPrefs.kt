@@ -7,7 +7,12 @@ object WidgetPrefs {
     private const val PREFS_NAME = "widget_prefs"
     private const val KEY_SCHEME = "scheme_"
     private const val KEY_NAME = "name_"
+    private const val KEY_FONT_SIZE = "font_size_"
     private const val DEFAULT_NAME = "My Portfolio"
+
+    const val FONT_SMALL = 0
+    const val FONT_MEDIUM = 1
+    const val FONT_LARGE = 2
 
     fun saveScheme(context: Context, appWidgetId: Int, schemeId: Int) {
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -38,5 +43,25 @@ object WidgetPrefs {
     fun deleteName(context: Context, appWidgetId: Int) {
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
             .edit().remove(KEY_NAME + appWidgetId).apply()
+    }
+
+    fun saveFontSize(context: Context, appWidgetId: Int, size: Int) {
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .edit().putInt(KEY_FONT_SIZE + appWidgetId, size).apply()
+    }
+
+    fun getFontSize(context: Context, appWidgetId: Int): Int =
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .getInt(KEY_FONT_SIZE + appWidgetId, FONT_MEDIUM)
+
+    fun deleteFontSize(context: Context, appWidgetId: Int) {
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .edit().remove(KEY_FONT_SIZE + appWidgetId).apply()
+    }
+
+    fun fontMultiplier(context: Context, appWidgetId: Int): Float = when (getFontSize(context, appWidgetId)) {
+        FONT_SMALL -> 0.82f
+        FONT_LARGE -> 1.22f
+        else -> 1.0f
     }
 }

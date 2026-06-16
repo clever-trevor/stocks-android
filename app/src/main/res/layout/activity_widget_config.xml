@@ -47,7 +47,50 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Font size"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp" />
+
+        <RadioGroup
+            android:id="@+id/rg_font_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_font_small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Small" />
+
+            <RadioButton
+                android:id="@+id/rb_font_medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Medium"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rb_font_large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Large" />
+
+        </RadioGroup>
+
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_schemes"

@@ -35,6 +35,7 @@ class HoldingsWidgetProvider : AppWidgetProvider() {
         for (id in appWidgetIds) {
             WidgetPrefs.deleteScheme(context, id)
             WidgetPrefs.deleteName(context, id)
+            WidgetPrefs.deleteFontSize(context, id)
         }
     }
 

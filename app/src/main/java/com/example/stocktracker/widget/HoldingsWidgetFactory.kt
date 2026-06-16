@@ -3,6 +3,7 @@ package com.example.stocktracker.widget
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
+import android.util.TypedValue
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import com.example.stocktracker.R
@@ -27,6 +28,7 @@ class HoldingsWidgetFactory(
         minimumFractionDigits = 0
     }
     private var scheme: WidgetColorScheme = WidgetColorSchemes.all[0]
+    private var fontMultiplier: Float = 1.0f
     private var stocks: List<StockEntity> = emptyList()
 
     override fun onCreate() = Unit
@@ -34,6 +36,7 @@ class HoldingsWidgetFactory(
 
     override fun onDataSetChanged() {
         scheme = WidgetPrefs.getScheme(context, appWidgetId)
+        fontMultiplier = WidgetPrefs.fontMultiplier(context, appWidgetId)
         stocks = runBlocking { repository.getWidgetStocks() }
     }
 
@@ -68,6 +71,7 @@ class HoldingsWidgetFactory(
 
         rv.setTextViewText(R.id.tv_hrow_gain, gainText)
         rv.setTextViewText(R.id.tv_hrow_gain_pct, gainPctText)
+
         rv.setTextColor(R.id.tv_hrow_name, scheme.nameColor)
         rv.setTextColor(R.id.tv_hrow_ticker, scheme.symbolColor)
         rv.setTextColor(R.id.tv_hrow_price, scheme.valueColor)
@@ -76,6 +80,14 @@ class HoldingsWidgetFactory(
         rv.setTextColor(R.id.tv_hrow_gain, gainColor)
         rv.setTextColor(R.id.tv_hrow_gain_pct, gainColor)
         rv.setInt(R.id.img_hrow_divider, "setBackgroundColor", scheme.dividerColor)
+
+        rv.setTextViewTextSize(R.id.tv_hrow_name, TypedValue.COMPLEX_UNIT_SP, 15f * fontMultiplier)
+        rv.setTextViewTextSize(R.id.tv_hrow_ticker, TypedValue.COMPLEX_UNIT_SP, 10.5f * fontMultiplier)
+        rv.setTextViewTextSize(R.id.tv_hrow_price, TypedValue.COMPLEX_UNIT_SP, 12.5f * fontMultiplier)
+        rv.setTextViewTextSize(R.id.tv_hrow_value, TypedValue.COMPLEX_UNIT_SP, 16f * fontMultiplier)
+        rv.setTextViewTextSize(R.id.tv_hrow_cost, TypedValue.COMPLEX_UNIT_SP, 9.5f * fontMultiplier)
+        rv.setTextViewTextSize(R.id.tv_hrow_gain, TypedValue.COMPLEX_UNIT_SP, 13f * fontMultiplier)
+        rv.setTextViewTextSize(R.id.tv_hrow_gain_pct, TypedValue.COMPLEX_UNIT_SP, 10f * fontMultiplier)
 
         return rv
     }

@@ -12,6 +12,13 @@ import com.example.stocktracker.widget.HoldingsWidgetProvider
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
+data class PortfolioSummary(
+    val totalValue: Double,
+    val pnl: Double,
+    val pnlPct: Double,
+    val hasData: Boolean
+)
+
 class PortfolioViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repository = StockRepository(app)
@@ -24,6 +31,19 @@ class PortfolioViewModel(app: Application) : AndroidViewModel(app) {
 
     val stocks: LiveData<List<StockDisplayItem>> = repository.getAllStocksFlow()
         .map { list -> list.map { it.toDisplayItem() } }
+        .asLiveData()
+
+    val summary: LiveData<PortfolioSummary> = repository.getAllStocksFlow()
+        .map { list ->
+            if (list.isEmpty()) return@map PortfolioSummary(0.0, 0.0, 0.0, false)
+            val totalCost = list.sumOf { it.unitCostGbp * it.sharesHeld }
+            val totalValue = list.sumOf {
+                it.cachedPriceGbp?.let { p -> p * it.sharesHeld } ?: (it.unitCostGbp * it.sharesHeld)
+            }
+            val pnl = totalValue - totalCost
+            val pnlPct = if (totalCost > 0) pnl / totalCost * 100 else 0.0
+            PortfolioSummary(totalValue, pnl, pnlPct, true)
+        }
         .asLiveData()
 
     fun refresh() {

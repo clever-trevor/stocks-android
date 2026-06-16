@@ -2,10 +2,9 @@ package com.example.stocktracker.data.repository
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.stocktracker.BuildConfig
 import com.example.stocktracker.data.local.AppDatabase
 import com.example.stocktracker.data.local.StockEntity
-import com.example.stocktracker.data.remote.AlphaVantageApi
+import com.example.stocktracker.data.remote.YahooFinanceApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
@@ -13,10 +12,9 @@ import kotlinx.coroutines.withContext
 class StockRepository(context: Context) {
 
     private val stockDao = AppDatabase.getDatabase(context).stockDao()
-    private val api = AlphaVantageApi.create()
+    private val api = YahooFinanceApi.create()
     private val prefs: SharedPreferences =
         context.getSharedPreferences("stock_prefs", Context.MODE_PRIVATE)
-    private val apiKey = BuildConfig.ALPHA_VANTAGE_KEY
 
     companion object {
         private const val KEY_USD_GBP = "usd_gbp_rate"
@@ -50,22 +48,26 @@ class StockRepository(context: Context) {
             if (!isStale) continue
 
             try {
-                val response = api.getGlobalQuote(
-                    symbol = toAlphaVantageSymbol(stock.symbol),
-                    apiKey = apiKey
-                )
-                val price = response.globalQuote?.price?.toDoubleOrNull() ?: continue
-                val changePercent = response.globalQuote.changePercent
-                    ?.replace("%", "")?.trim()?.toDoubleOrNull() ?: 0.0
+                val meta = api.getChart(toYahooSymbol(stock.symbol))
+                    .chart?.result?.firstOrNull()?.meta ?: continue
+                val price = meta.regularMarketPrice ?: continue
+                val changePercent = meta.regularMarketChangePercent ?: 0.0
 
-                // Alpha Vantage always returns LSE prices in pence regardless of
-                // how the currency field is stored. Catch both .L (Yahoo) and .LON (Alpha Vantage) formats.
-                val symUpper = stock.symbol.uppercase()
-                val isUkStock = symUpper.endsWith(".L") || symUpper.endsWith(".LON")
-                val gbpPrice = when {
-                    isUkStock || stock.currency.uppercase() == "GBX" -> price / 100.0
-                    stock.currency.uppercase() == "USD" -> price * usdToGbp
-                    else -> price
+                // Yahoo Finance returns currency in the meta: "GBp" = pence, "GBP" = pounds, "USD" = dollars
+                val gbpPrice = when (meta.currency) {
+                    "GBp" -> price / 100.0
+                    "USD" -> price * usdToGbp
+                    "GBP" -> price
+                    else -> {
+                        // Fallback: infer from stored currency/symbol
+                        val sym = stock.symbol.uppercase()
+                        when {
+                            stock.currency.uppercase() == "GBX" ||
+                                sym.endsWith(".L") || sym.endsWith(".LON") -> price / 100.0
+                            stock.currency.uppercase() == "USD" -> price * usdToGbp
+                            else -> price
+                        }
+                    }
                 }
 
                 withContext(Dispatchers.IO) {
@@ -89,22 +91,23 @@ class StockRepository(context: Context) {
         if (cached > 0 && now - timestamp < FOREX_CACHE_MS) return cached.toDouble()
 
         return try {
-            val response = api.getExchangeRate(
-                fromCurrency = "USD",
-                toCurrency = "GBP",
-                apiKey = apiKey
-            )
-            val rate = response.exchangeRate?.rate?.toDoubleOrNull() ?: 0.79
+            // GBPUSD=X: 1 GBP = X USD (e.g. 1.27), so USD→GBP = 1/rate
+            val gbpUsd = api.getChart("GBPUSD=X")
+                .chart?.result?.firstOrNull()?.meta?.regularMarketPrice ?: return cached.toDoubleOrFallback()
+            val rate = 1.0 / gbpUsd
             prefs.edit()
                 .putFloat(KEY_USD_GBP, rate.toFloat())
                 .putLong(KEY_USD_GBP_TS, now)
                 .apply()
             rate
         } catch (_: Exception) {
-            if (cached > 0) cached.toDouble() else 0.79
+            cached.toDoubleOrFallback()
         }
     }
 
-    private fun toAlphaVantageSymbol(symbol: String): String =
-        if (symbol.uppercase().endsWith(".L")) symbol.dropLast(2) + ".LON" else symbol
+    private fun Float.toDoubleOrFallback() = if (this > 0) toDouble() else 0.79
+
+    // Yahoo Finance uses .L for LSE stocks; convert .LON if previously stored that way
+    private fun toYahooSymbol(symbol: String): String =
+        if (symbol.uppercase().endsWith(".LON")) symbol.dropLast(4) + ".L" else symbol
 }
