@@ -43,7 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textColor="#212121" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,6 +53,7 @@
             android:layout_height="wrap_content"
             android:text="Font size"
             android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:textColor="#212121"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="6dp" />
 
@@ -59,29 +61,43 @@
             android:id="@+id/rg_font_size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/rb_font_small"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Small" />
+                android:text="Small"
+                android:textColor="#212121" />
 
             <RadioButton
                 android:id="@+id/rb_font_medium"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="Medium"
+                android:textColor="#212121"
                 android:checked="true" />
 
             <RadioButton
                 android:id="@+id/rb_font_large"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Large" />
+                android:text="Large"
+                android:textColor="#212121" />
+
+            <RadioButton
+                android:id="@+id/rb_font_xlarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X-Large"
+                android:textColor="#212121" />
+
+            <RadioButton
+                android:id="@+id/rb_font_xxlarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XX-Large"
+                android:textColor="#212121" />
 
         </RadioGroup>
 

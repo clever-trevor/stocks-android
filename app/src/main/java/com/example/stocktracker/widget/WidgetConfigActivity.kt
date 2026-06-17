@@ -54,12 +54,16 @@ class WidgetConfigActivity : AppCompatActivity() {
         when (selectedFontSize) {
             WidgetPrefs.FONT_SMALL -> fontGroup.check(R.id.rb_font_small)
             WidgetPrefs.FONT_LARGE -> fontGroup.check(R.id.rb_font_large)
+            WidgetPrefs.FONT_XLARGE -> fontGroup.check(R.id.rb_font_xlarge)
+            WidgetPrefs.FONT_XXLARGE -> fontGroup.check(R.id.rb_font_xxlarge)
             else -> fontGroup.check(R.id.rb_font_medium)
         }
         fontGroup.setOnCheckedChangeListener { _, checkedId ->
             selectedFontSize = when (checkedId) {
                 R.id.rb_font_small -> WidgetPrefs.FONT_SMALL
                 R.id.rb_font_large -> WidgetPrefs.FONT_LARGE
+                R.id.rb_font_xlarge -> WidgetPrefs.FONT_XLARGE
+                R.id.rb_font_xxlarge -> WidgetPrefs.FONT_XXLARGE
                 else -> WidgetPrefs.FONT_MEDIUM
             }
         }

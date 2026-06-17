@@ -13,6 +13,8 @@ object WidgetPrefs {
     const val FONT_SMALL = 0
     const val FONT_MEDIUM = 1
     const val FONT_LARGE = 2
+    const val FONT_XLARGE = 3
+    const val FONT_XXLARGE = 4
 
     fun saveScheme(context: Context, appWidgetId: Int, schemeId: Int) {
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -62,6 +64,8 @@ object WidgetPrefs {
     fun fontMultiplier(context: Context, appWidgetId: Int): Float = when (getFontSize(context, appWidgetId)) {
         FONT_SMALL -> 0.82f
         FONT_LARGE -> 1.22f
+        FONT_XLARGE -> 1.45f
+        FONT_XXLARGE -> 1.70f
         else -> 1.0f
     }
 }
